@@ -48,7 +48,7 @@ const userData = (await user.json()) as DataTypes
 ---
 
 <div class="m-auto flex flex-1 items-center justify-center flex-col">
-  <div class="flex gap-7">
+  <div class="border-b pb-6 flex gap-7">
     <img
       class="rounded-full h-32 w-32"
       src={userData?.avatar_url}
@@ -57,10 +57,9 @@ const userData = (await user.json()) as DataTypes
 
     <div class="max-w-[520px] flex flex-col gap-6">
       <p class="w-full text-lg text-white">
-        Olá! Eu sou <strong>{userData?.name}</strong>, desenvolvedor front-end.
-        Possuo mais de cinco anos de experiência na criação de interfaces
-        agradáveis e modernas. Estou sempre à procura de novos desafios e
-        soluções eficientes.
+        Olá! Eu sou <strong>{userData?.name}</strong>, dev front-end. Trabalho à
+        mais de cinco anos na criação de interfaces agradáveis e modernas.
+        Sempre à procura de novos desafios e soluções eficientes.
       </p>
 
       <p class="w-full text-lg text-white">
