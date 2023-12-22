@@ -7,3 +7,5 @@ Um portfolio minimalista, feito com Astro e React.
 - [x] Footer.
 
 - [x] Github API.
+
+- [x] Header.
