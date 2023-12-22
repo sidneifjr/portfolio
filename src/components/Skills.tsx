@@ -16,7 +16,7 @@ export const Skills = () => {
   ]
 
   return (
-    <ul className="border-t py-4 mt-4 flex gap-2">
+    <ul className="py-6 flex gap-2">
       {skills.map((skill) => (
         <li key={id} className="text-white">
           {skill}
