@@ -1,0 +1,73 @@
+---
+import { githubAccessToken } from '../constants/accessToken'
+
+import { Skills } from './Skills'
+
+type DataTypes = {
+  login: string
+  id: number
+  node_id: string
+  avatar_url: string
+  gravatar_id: string
+  url: string
+  html_url: string
+  followers_url: string
+  following_url: string
+  gists_url: string
+  starred_url: string
+  subscriptions_url: string
+  organizations_url: string
+  repos_url: string
+  events_url: string
+  received_events_url: string
+  type: string
+  site_admin: boolean
+  name: string
+  company: null
+  blog: string
+  location: string
+  email: null
+  hireable: boolean
+  bio: string
+  twitter_username: null
+  public_repos: number
+  public_gists: number
+  followers: number
+  following: number
+  created_at: Date
+  updated_at: Date
+}
+
+const user = await fetch(import.meta.env.PUBLIC_USER_API, {
+  headers: {
+    authorization: `token ${githubAccessToken}`,
+  },
+})
+
+const userData = (await user.json()) as DataTypes
+---
+
+<div class="m-auto flex flex-1 items-center justify-center flex-col">
+  <div class="flex gap-7">
+    <img
+      class="rounded-full h-32 w-32"
+      src={userData?.avatar_url}
+      alt={userData?.name}
+    />
+
+    <div class="max-w-[520px] flex flex-col gap-6">
+      <p class="w-full text-lg text-white">
+        Olá! Eu sou <strong>{userData?.name}</strong>, desenvolvedor front-end.
+        Possuo mais de cinco anos de experiência na criação de interfaces
+        agradáveis e modernas. Estou sempre à procura de novos desafios e
+        soluções eficientes.
+      </p>
+
+      <p class="w-full text-lg text-white">
+        Atualmente, resido em <strong>{userData?.location}</strong>.
+      </p>
+    </div>
+  </div>
+
+  <Skills />
+</div>
