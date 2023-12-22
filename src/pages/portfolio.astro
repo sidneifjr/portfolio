@@ -1,0 +1,180 @@
+---
+import { Image } from 'astro:assets'
+
+import { githubAccessToken } from '../constants/accessToken'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+type RepoTypes = {
+  [x: string]: any
+  id: number
+  node_id: string
+  name: string
+  full_name: string
+  private: boolean
+  owner: {
+    login: string
+    id: number
+    node_id: string
+    avatar_url: string
+    gravatar_id: string
+    url: string
+    html_url: string
+    followers_url: string
+    following_url: string
+    gists_url: string
+    starred_url: string
+    subscriptions_url: string
+    organizations_url: string
+    repos_url: string
+    events_url: string
+    received_events_url: string
+    type: string
+    site_admin: boolean
+  }
+  html_url: string
+  description: string
+  fork: boolean
+  url: string
+  forks_url: string
+  keys_url: string
+  collaborators_url: string
+  teams_url: string
+  hooks_url: string
+  issue_events_url: string
+  events_url: string
+  assignees_url: string
+  branches_url: string
+  tags_url: string
+  blobs_url: string
+  git_tags_url: string
+  git_refs_url: string
+  trees_url: string
+  statuses_url: string
+  languages_url: string
+  stargazers_url: string
+  contributors_url: string
+  subscribers_url: string
+  subscription_url: string
+  commits_url: string
+  git_commits_url: string
+  comments_url: string
+  issue_comment_url: string
+  contents_url: string
+  compare_url: string
+  merges_url: string
+  archive_url: string
+  downloads_url: string
+  issues_url: string
+  pulls_url: string
+  milestones_url: string
+  notifications_url: string
+  labels_url: string
+  releases_url: string
+  deployments_url: string
+  created_at: string
+  updated_at: string
+  pushed_at: string
+  git_url: string
+  ssh_url: string
+  clone_url: string
+  svn_url: string
+  homepage: string
+  size: number
+  stargazers_count: number
+  watchers_count: number
+  language: string
+  has_issues: boolean
+  has_projects: boolean
+  has_downloads: boolean
+  has_wiki: boolean
+  has_pages: boolean
+  has_discussions: boolean
+  forks_count: number
+  mirror_url: null
+  archived: boolean
+  disabled: boolean
+  open_issues_count: number
+  license: {
+    key: string
+    name: string
+    spdx_id: string
+    url: string
+    node_id: string
+  }
+  allow_forking: boolean
+  is_template: boolean
+  web_commit_signoff_required: boolean
+  topics: string[]
+  visibility: string
+  forks: number
+  open_issues: number
+  watchers: number
+  default_branch: string
+}
+
+const repos: RepoTypes = await fetch(
+  `${import.meta.env.PUBLIC_USER_API}/repos`,
+  {
+    headers: {
+      authorization: `token ${githubAccessToken}`,
+    },
+  }
+).then((res) => res.json())
+
+console.log(repos)
+---
+
+<BaseLayout title="Portfolio">
+  <div
+    class="w-full max-w-[1024px] m-auto max-h-[440px] scrollbar scrollbar-thumb-rounded scrollbar-thumb-[#60a0ef] overflow-y-scroll hover:scrollbar-thumb-blue-600 overflow-auto"
+  >
+    <!-- <div
+      class="text-white"
+      style="width: 600px; text-wrap: pretty; display:flex;">
+     {JSON.stringify(repos, null, 2)}
+     <!-- {JSON.stringify(repos.languages_url, null, 2)} -->
+
+    <div class="flex flex-wrap flex-col gap-4">
+      {
+        repos.map((repo: RepoTypes) => {
+          // console.log(new Date(repo.created_at).getTime())
+
+          return (
+            <a
+              href={repo.html_url}
+              target="_blank"
+              class="h-[440px] border border-white p-4 relative flex items-end"
+            >
+              <div class="flex-1">
+                <div class="bg-black w-full h-full absolute top-0 left-0 z-0 overflow-hidden">
+                  <Image
+                    width={128}
+                    height={128}
+                    src={
+                      'https://repository-images.githubusercontent.com/719195117/4a8b833b-14f8-4afd-a038-2bc103d6ff2a'
+                    }
+                    alt={repo.name}
+                    class="w-full h-full object-cover object-top hover:scale-105 transition duration-200"
+                  />
+
+                  <div class="h-full w-full absolute top-0 bg-black/40 pointer-events-none" />
+                </div>
+
+                <div class="relative z-10">
+                  <strong class="text-white capitalize">
+                    {repo.name.replaceAll('-', ' ')}
+                  </strong>
+
+                  <p class="text-white">{repo.description}</p>
+                  <p class="text-white">{repo.created_at}</p>
+                  <p class="text-white capitalize">{repo.topics.join(', ')}</p>
+                </div>
+              </div>
+            </a>
+          )
+        })
+      }
+    </div>
+  </div>
+</BaseLayout>

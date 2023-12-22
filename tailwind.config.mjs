@@ -3,5 +3,10 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
+  variants: {
+    scrollbar: ['rounded']
+  }
 }
