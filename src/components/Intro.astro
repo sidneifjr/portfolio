@@ -1,6 +1,8 @@
 ---
 import { githubAccessToken } from '../constants/accessToken'
 
+import { Image } from 'astro:assets'
+
 import { Skills } from './Skills'
 
 type DataTypes = {
@@ -47,7 +49,9 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
 
 <div class="m-auto flex flex-1 items-center justify-center flex-col">
   <div class="border-b pb-6 flex gap-7">
-    <img
+    <Image
+      width={128}
+      height={128}
       class="rounded-full h-32 w-32"
       src={userData?.avatar_url}
       alt={userData?.name}
