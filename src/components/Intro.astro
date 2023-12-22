@@ -38,13 +38,11 @@ type DataTypes = {
   updated_at: Date
 }
 
-const user = await fetch(import.meta.env.PUBLIC_USER_API, {
+const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
   headers: {
     authorization: `token ${githubAccessToken}`,
   },
-})
-
-const userData = (await user.json()) as DataTypes
+}).then((res) => res.json())
 ---
 
 <div class="m-auto flex flex-1 items-center justify-center flex-col">
