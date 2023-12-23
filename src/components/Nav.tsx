@@ -15,7 +15,7 @@ export const Nav = ({ navLinks, activeItem }: NavLinksTypes) => {
     <nav>
       {/* <Menu /> */}
 
-      <ul className="flex gap-4">
+      <ul className="flex gap-6">
         {navLinks.map((navLink: string) => {
           return (
             <li
