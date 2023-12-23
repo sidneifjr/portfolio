@@ -1,9 +1,9 @@
 ---
-import { Image } from 'astro:assets'
-
 import { githubAccessToken } from '../constants/accessToken'
 
 import BaseLayout from '../layouts/BaseLayout.astro'
+
+import { Image } from 'astro:assets'
 
 type RepoTypes = {
   [x: string]: any
@@ -122,24 +122,24 @@ const repos: RepoTypes = await fetch(
   }
 ).then((res) => res.json())
 
-console.log(repos)
+// console.log(repos)
+
+const repoImages = [
+  'https://repository-images.githubusercontent.com/719195117/4a8b833b-14f8-4afd-a038-2bc103d6ff2a',
+  'https://repository-images.githubusercontent.com/688666566/fb2353cc-5844-4f74-b2e1-d605cfa60172',
+  'https://repository-images.githubusercontent.com/675873477/b928b1ff-b4e4-4454-8577-0c86a36b3f6f',
+  'https://repository-images.githubusercontent.com/734468286/bfd3e5a4-2a0a-4f70-a9f8-0fd0aca376f4',
+  'https://repository-images.githubusercontent.com/572790831/3803208e-44ac-42c7-a0c6-e2041f2e8521',
+]
 ---
 
 <BaseLayout title="Portfolio">
   <div
     class="w-full max-w-[1024px] m-auto max-h-[440px] scrollbar scrollbar-thumb-rounded scrollbar-thumb-[#60a0ef] overflow-y-scroll hover:scrollbar-thumb-blue-600 overflow-auto"
   >
-    <!-- <div
-      class="text-white"
-      style="width: 600px; text-wrap: pretty; display:flex;">
-     {JSON.stringify(repos, null, 2)}
-     <!-- {JSON.stringify(repos.languages_url, null, 2)} -->
-
     <div class="flex flex-wrap flex-col gap-4">
       {
-        repos.map((repo: RepoTypes) => {
-          // console.log(new Date(repo.created_at).getTime())
-
+        repos.map((repo: RepoTypes, index: number) => {
           return (
             <a
               href={repo.html_url}
@@ -151,9 +151,7 @@ console.log(repos)
                   <Image
                     width={128}
                     height={128}
-                    src={
-                      'https://repository-images.githubusercontent.com/719195117/4a8b833b-14f8-4afd-a038-2bc103d6ff2a'
-                    }
+                    src={repoImages[index]}
                     alt={repo.name}
                     class="w-full h-full object-cover object-top hover:scale-105 transition duration-200"
                   />
@@ -161,14 +159,16 @@ console.log(repos)
                   <div class="h-full w-full absolute top-0 bg-black/40 pointer-events-none" />
                 </div>
 
-                <div class="relative z-10">
+                <div class="relative z-10 pointer-events-none">
                   <strong class="text-white capitalize">
                     {repo.name.replaceAll('-', ' ')}
                   </strong>
 
                   <p class="text-white">{repo.description}</p>
-                  <p class="text-white">{repo.created_at}</p>
-                  <p class="text-white capitalize">{repo.topics.join(', ')}</p>
+                  {/* <p class="text-white">{repo.created_at}</p> */}
+                  <p class="text-white capitalize pt-2">
+                    <strong>Stack</strong>: {repo.topics.join(', ')}.
+                  </p>
                 </div>
               </div>
             </a>
