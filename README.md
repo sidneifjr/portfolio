@@ -2,6 +2,8 @@
 
 Um portfolio minimalista, feito com Astro e React.
 
+Escolhi a estética "single page, no scroll".
+
 ## To Do
 
 - [x] Header.
@@ -17,3 +19,5 @@ Um portfolio minimalista, feito com Astro e React.
 - [x] Github API.
 
 - [x] Sobre.
+
+- [x] Contato.
