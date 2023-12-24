@@ -47,7 +47,9 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
 }).then((res) => res.json())
 ---
 
-<div class="m-auto flex flex-1 items-center justify-center flex-col">
+<div
+  class="max-w-[656px] m-auto flex flex-1 items-center justify-center flex-col"
+>
   <div class="border-b pb-6 flex gap-7">
     <Image
       width={128}
