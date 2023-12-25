@@ -21,3 +21,7 @@ Escolhi a estética "single page, no scroll".
 - [x] Sobre.
 
 - [x] Contato.
+
+- [x] Contato: exibir os próximos campos, conforme os anteriores são preenchidos.
+
+- [x] Contato: trocar cor da borda inferior, quando um campo é preenchido.
