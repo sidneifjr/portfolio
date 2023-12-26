@@ -25,3 +25,5 @@ Um portfolio minimalista, feito com Astro e React.
 2. Reduce bundle size: https://www.framer.com/motion/guide-reduce-bundle-size/
 
 3. Component creation practices: https://zellwk.com/blog/building-components-in-astro/
+
+4. pnpm usage with astro (image optimization on build): https://github.com/withastro/astro/issues/8310#issuecomment-1702967398
