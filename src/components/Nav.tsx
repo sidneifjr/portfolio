@@ -20,7 +20,7 @@ export const Nav = ({ navLinks, activeItem }: NavLinksTypes) => {
           return (
             <li
               key={id}
-              className="text-xl text-white hover:text-white/90 transition"
+              className="font-secondary text-xl text-white hover:text-white/90 transition"
             >
               <a
                 href={`/${navLink.toLowerCase()}`}

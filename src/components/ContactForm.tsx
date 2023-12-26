@@ -47,7 +47,7 @@ export const ContactForm = () => {
       >
         <fieldset className="w-full flex flex-col">
           <label
-            className="text-lg font-bold text-white pb-2 block"
+            className="font-secondary text-lg text-white pb-2 block"
             htmlFor="name"
           >
             Nome
@@ -73,7 +73,7 @@ export const ContactForm = () => {
         >
           <fieldset className="w-full flex flex-col">
             <label
-              className="text-lg font-bold text-white pb-2 block"
+              className="font-secondary text-lg text-white pb-2 block"
               htmlFor="subject"
             >
               Assunto
@@ -102,7 +102,7 @@ export const ContactForm = () => {
         >
           <fieldset className="w-full flex flex-col">
             <label
-              className="text-lg font-bold text-white pb-2 block"
+              className="font-secondary text-lg text-white pb-2 block"
               htmlFor="message"
             >
               Mensagem
@@ -115,7 +115,7 @@ export const ContactForm = () => {
             ></textarea>
           </fieldset>
 
-          <button className="w-20 text-white/50 text-center border-2 border-white/50 rounded-md py-1 px-4 mx-auto placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white flex justify-center items-center focus:text-white transition">
+          <button className="w-20 font-medium text-white/50 text-center border-2 border-white/50 rounded-md py-1 px-4 mx-auto placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white flex justify-center items-center focus:text-white transition">
             Enviar
           </button>
         </MotionWrapper>
