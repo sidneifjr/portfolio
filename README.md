@@ -27,3 +27,5 @@ Um portfolio minimalista, feito com Astro e React.
 3. Component creation practices: https://zellwk.com/blog/building-components-in-astro/
 
 4. pnpm usage with astro (image optimization on build): https://github.com/withastro/astro/issues/8310#issuecomment-1702967398
+
+5. Vercel hosting only enables web crawlers on production domains: https://github.com/vercel/next.js/discussions/14319
