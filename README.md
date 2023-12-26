@@ -2,8 +2,6 @@
 
 Um portfolio minimalista, feito com Astro e React.
 
-Escolhi a estética "single page, no scroll".
-
 ## To Do
 
 - [x] Github API.
@@ -15,6 +13,8 @@ Escolhi a estética "single page, no scroll".
 - [x] View Transitions.
 
 - [x] Contato: animar exibição de cada input, conforme os campos são preenchidos.
+
+- [x] Definir fontes (Lato e Montserrat), via FontSource.
 
 ## Aprendizado
 
