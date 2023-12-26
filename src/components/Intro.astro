@@ -3,6 +3,8 @@ import { githubAccessToken } from '../constants/accessToken'
 
 import { Image } from 'astro:assets'
 
+import profile from '../images/intro/profile.jpg'
+
 import { Skills } from './Skills'
 
 type DataTypes = {
@@ -55,7 +57,7 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
       width={128}
       height={128}
       class="rounded-full h-32 w-32"
-      src={userData?.avatar_url}
+      src={profile}
       alt={userData?.name}
     />
 

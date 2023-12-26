@@ -14,7 +14,9 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Contato: animar exibição de cada input, conforme os campos são preenchidos.
 
-- [x] Definir fontes (Lato e Montserrat), via FontSource.
+- [x] Definir fontes, via FontSource.
+
+- [x] Home/Portfolio: mover assets externos para o interior da aplicação, permitindo otimização nativa via Astro.
 
 ## Aprendizado
 

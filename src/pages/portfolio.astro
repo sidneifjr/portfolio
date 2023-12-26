@@ -5,6 +5,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 import { Image } from 'astro:assets'
 
+import battlebitArsenal from '../images/portfolio/battlebit-arsenal.png'
+import igniteShop from '../images/portfolio/ignite-shop.png'
+import marvelSuperHeroes from '../images/portfolio/marvel-super-heroes.png'
+import portfolio from '../images/portfolio/portfolio.png'
+import toDoList from '../images/portfolio/to-do-list.png'
+
 type RepoTypes = {
   [x: string]: any
   id: number
@@ -123,11 +129,11 @@ const repos: RepoTypes = await fetch(
 ).then((res) => res.json())
 
 const repoImages = [
-  'https://repository-images.githubusercontent.com/719195117/4a8b833b-14f8-4afd-a038-2bc103d6ff2a',
-  'https://repository-images.githubusercontent.com/688666566/fb2353cc-5844-4f74-b2e1-d605cfa60172',
-  'https://repository-images.githubusercontent.com/675873477/b928b1ff-b4e4-4454-8577-0c86a36b3f6f',
-  'https://repository-images.githubusercontent.com/734468286/bfd3e5a4-2a0a-4f70-a9f8-0fd0aca376f4',
-  'https://repository-images.githubusercontent.com/572790831/3803208e-44ac-42c7-a0c6-e2041f2e8521',
+  battlebitArsenal,
+  igniteShop,
+  marvelSuperHeroes,
+  portfolio,
+  toDoList,
 ]
 ---
 
@@ -147,8 +153,8 @@ const repoImages = [
               <div class="flex-1">
                 <div class="bg-black w-full h-full absolute top-0 left-0 z-0 overflow-hidden">
                   <Image
-                    width={128}
-                    height={128}
+                    width={1006}
+                    height={438}
                     src={repoImages[index]}
                     alt={repo.name}
                     class="w-full h-full object-cover object-top hover:scale-105 transition duration-200"
