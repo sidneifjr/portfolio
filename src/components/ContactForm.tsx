@@ -10,16 +10,12 @@ export const ContactForm = () => {
     const inputValue = target.value.trim()
 
     if (reference === undefined) {
-      target.classList.add('border-green-400')
+      target.classList.add('!border-green-400')
     }
-
-    // if (inputValue === '') {
-    //   target.classList.remove('border-green-400')
-    // }
 
     if (inputValue !== '') {
       if (e.key === 'Enter' || e.key === 'Tab') {
-        target.classList.add('border-green-400')
+        target.classList.add('!border-green-400')
 
         if (reference === 'fieldset1') {
           setFieldset1(true)
