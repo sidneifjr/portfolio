@@ -18,6 +18,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.0.7",
+    "embla-carousel-react": "8.0.0-rc17",
     "framer-motion": "^10.16.16",
     "lucide-react": "^0.299.0",
     "react": "^18.2.0",
@@ -31,7 +32,6 @@
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.0",
     "prettier": "3.1.1",
-    "prettier-plugin-astro": "^0.12.2",
-    "tailwind-scrollbar": "^3.0.5"
+    "prettier-plugin-astro": "^0.12.2"
   }
 }

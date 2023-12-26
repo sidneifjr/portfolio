@@ -3,13 +3,7 @@ import { githubAccessToken } from '../constants/accessToken'
 
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-import { Image } from 'astro:assets'
-
-import battlebitArsenal from '../images/portfolio/battlebit-arsenal.png'
-import igniteShop from '../images/portfolio/ignite-shop.png'
-import marvelSuperHeroes from '../images/portfolio/marvel-super-heroes.png'
-import portfolio from '../images/portfolio/portfolio.png'
-import toDoList from '../images/portfolio/to-do-list.png'
+import { PortfolioCarousel } from '../components/PortfolioCarousel'
 
 type RepoTypes = {
   [x: string]: any
@@ -127,58 +121,8 @@ const repos: RepoTypes = await fetch(
     },
   }
 ).then((res) => res.json())
-
-const repoImages = [
-  battlebitArsenal,
-  igniteShop,
-  marvelSuperHeroes,
-  portfolio,
-  toDoList,
-]
 ---
 
 <BaseLayout title="Portfolio">
-  <div
-    class="w-full max-w-[1024px] m-auto max-h-[440px] scrollbar scrollbar-thumb-rounded scrollbar-thumb-[#60a0ef] overflow-y-scroll hover:scrollbar-thumb-blue-600 overflow-auto"
-  >
-    <div class="flex flex-wrap flex-col gap-4">
-      {
-        repos.map((repo: RepoTypes, index: number) => {
-          return (
-            <a
-              href={repo.html_url}
-              target="_blank"
-              class="h-[440px] border border-white p-4 relative flex items-end"
-            >
-              <div class="flex-1">
-                <div class="bg-black w-full h-full absolute top-0 left-0 z-0 overflow-hidden">
-                  <Image
-                    width={1006}
-                    height={438}
-                    src={repoImages[index]}
-                    alt={repo.name}
-                    class="w-full h-full object-cover object-top hover:scale-105 transition duration-200"
-                  />
-
-                  <div class="h-full w-full absolute top-0 bg-black/40 pointer-events-none" />
-                </div>
-
-                <div class="relative z-10 pointer-events-none">
-                  <strong class="font-secondary text-lg font-semibold text-white capitalize">
-                    {repo.name.replaceAll('-', ' ')}
-                  </strong>
-
-                  <p class="text-white">{repo.description}</p>
-                  {/* <p class="text-white">{repo.created_at}</p> */}
-                  <p class="text-white capitalize pt-2">
-                    <strong>Stack</strong>: {repo.topics.join(', ')}.
-                  </p>
-                </div>
-              </div>
-            </a>
-          )
-        })
-      }
-    </div>
-  </div>
+  <PortfolioCarousel client:load repos={repos} />
 </BaseLayout>

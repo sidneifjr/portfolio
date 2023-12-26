@@ -18,6 +18,8 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Home/Portfolio: mover assets externos para o interior da aplicação, permitindo otimização nativa via Astro.
 
+- [x] Portfolio: substituir modelo de colunas verticais por um carousel.
+
 ## Aprendizado
 
 1. Sorting by date: https://stackoverflow.com/questions/65812772/filtering-then-sorting-object-array-by-date
