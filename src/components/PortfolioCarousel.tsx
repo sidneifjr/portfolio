@@ -47,7 +47,7 @@ export const PortfolioCarousel = ({ repos }: any) => {
                       <img
                         width={1006}
                         height={438}
-                        src={String(repoImages[index].src)}
+                        src={repoImages[index].src}
                         alt={repo.name}
                         className="w-full h-full object-cover object-top hover:scale-105 transition duration-200"
                       />
