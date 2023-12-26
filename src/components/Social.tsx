@@ -15,7 +15,7 @@ export const Social = () => {
         <Github className="text-white" />
       </a>
 
-      <a href="/contact" title="Email" target="blank">
+      <a href="/contact" title="Email">
         <Mail className="text-white" />
       </a>
     </div>
