@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+
 import { MotionWrapper } from './MotionWrapper'
 
 export const ContactForm = () => {
@@ -29,8 +30,45 @@ export const ContactForm = () => {
     }
   }
 
-  const handleSubmit = (el: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (el: FormEvent<HTMLFormElement>) => {
     el.preventDefault()
+
+    const form = el.target as HTMLFormElement
+    const formInputValues = new FormData(form)
+    const formDataArray = []
+
+    for (let [key, value] of formInputValues.entries()) {
+      formDataArray.push({ [key]: value })
+    }
+
+    const newFormData = {
+      ...formDataArray[0],
+      ...formDataArray[1],
+      ...formDataArray[2],
+    }
+
+    const { name, subject, message } = newFormData
+
+    try {
+      const res = await fetch('/api/sendEmail.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'onboarding@resend.dev',
+          to: 'sfarias.dev@gmail.com',
+          subject: `${subject} - From ${name}`,
+          html: `<p>${message}</p>`,
+          text: `${message}`,
+        }),
+      })
+
+      const data = await res.json()
+      return data
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
@@ -63,7 +101,7 @@ export const ContactForm = () => {
         </fieldset>
       </MotionWrapper>
 
-      {fieldset1 ? (
+      {fieldset1 && (
         <MotionWrapper
           initial={{ y: '25%', opacity: 0 }}
           animate={{ y: '0%', opacity: 1 }}
@@ -82,17 +120,15 @@ export const ContactForm = () => {
             <input
               className="w-full bg-transparent text-white border-b-2 border-white/50 pb-1 placeholder:text-white placeholder:opacity-50 focus:border-white outline-0 transition"
               type="text"
-              name="name"
+              name="subject"
               placeholder="Assunto"
               onKeyDown={(e) => handleInput(e, 'fieldset2')}
             />
           </fieldset>
         </MotionWrapper>
-      ) : (
-        ''
       )}
 
-      {fieldset2 ? (
+      {fieldset2 && (
         <MotionWrapper
           initial={{ y: '25%', opacity: 0 }}
           animate={{ y: '0%', opacity: 1 }}
@@ -119,8 +155,6 @@ export const ContactForm = () => {
             Enviar
           </button>
         </MotionWrapper>
-      ) : (
-        ''
       )}
     </form>
   )

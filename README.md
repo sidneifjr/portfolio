@@ -20,6 +20,8 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Portfolio: substituir modelo de colunas verticais por um carousel.
 
+- [x] Integração do formulário com Resend.
+
 ## Aprendizado
 
 1. Sorting by date: https://stackoverflow.com/questions/65812772/filtering-then-sorting-object-array-by-date
