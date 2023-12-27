@@ -14,6 +14,7 @@
     "@astrojs/node": "^7.0.3",
     "@astrojs/react": "^3.0.8",
     "@astrojs/tailwind": "^5.0.4",
+    "@astrojs/vercel": "^6.1.1",
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource/lato": "^5.0.18",
     "@types/react": "^18.2.45",
