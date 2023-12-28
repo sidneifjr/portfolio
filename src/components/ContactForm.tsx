@@ -4,9 +4,13 @@ import { MotionWrapper } from './MotionWrapper'
 
 import { Toaster, toast } from 'sonner'
 
+import loader from '../images/loader.svg'
+
 export const ContactForm = () => {
   const [fieldset1, setFieldset1] = useState(false)
   const [fieldset2, setFieldset2] = useState(false)
+
+  const [isRequestRunning, setIsRequestRunning] = useState(false)
 
   const handleInput = (e: any, reference?: string) => {
     const { target } = e
@@ -34,6 +38,8 @@ export const ContactForm = () => {
 
   const handleSubmit = async (el: FormEvent<HTMLFormElement>) => {
     el.preventDefault()
+
+    setIsRequestRunning(true)
 
     const form = el.target as HTMLFormElement
     const formInputValues = new FormData(form)
@@ -67,6 +73,7 @@ export const ContactForm = () => {
       })
 
       const data = await res.json()
+      setIsRequestRunning(false)
       toast.success('Success: message sent.')
 
       return data
@@ -151,14 +158,18 @@ export const ContactForm = () => {
               </label>
 
               <textarea
-                className="w-full h-40 bg-transparent text-white border-2 border-white/50 rounded-md p-1 placeholder:text-white placeholder:opacity-50 focus:border-white outline-0 transition resize-none"
+                className="w-full h-40 bg-transparent text-white border-2 border-white/50 rounded-md p-1 outline-0 transition resize-none placeholder:text-white placeholder:opacity-50 focus:border-white"
                 name="message"
                 onKeyDown={(e) => handleInput(e)}
               ></textarea>
             </fieldset>
 
-            <button className="w-20 font-medium text-white/50 text-center border-2 border-white/50 rounded-md py-1 px-4 mx-auto placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white flex justify-center items-center focus:text-white transition">
-              Enviar
+            <button className="w-24 text-lg min-h-10 font-medium text-white/50 text-center border-2 border-white/50 rounded-md py-1 px-4 mx-auto flex justify-center items-center transition placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white focus:text-white">
+              {isRequestRunning ? (
+                <img src={loader.src} alt="loader" />
+              ) : (
+                'Enviar'
+              )}
             </button>
           </MotionWrapper>
         )}
