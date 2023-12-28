@@ -20,7 +20,9 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Portfolio: substituir modelo de colunas verticais por um carousel.
 
-- [x] Integração do formulário com Resend.
+- [x] Contato: Integração do formulário com Resend.
+
+- [x] Contato: Notificar usuário sobre o envio da mensagem.
 
 ## Aprendizado
 
