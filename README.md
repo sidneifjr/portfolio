@@ -24,6 +24,8 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Contato: Notificar usuário sobre o envio da mensagem.
 
+- [x] Contato: Adicionar loading, entre o submit e o surgimento da notificação.
+
 ## Aprendizado
 
 1. Sorting by date: https://stackoverflow.com/questions/65812772/filtering-then-sorting-object-array-by-date
