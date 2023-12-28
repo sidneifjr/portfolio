@@ -28,6 +28,8 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Testes: Implementar E2E.
 
+- [x] Home: Exibir ícones referentes a cada skill.
+
 ## Aprendizado
 
 1. Sorting by date: https://stackoverflow.com/questions/65812772/filtering-then-sorting-object-array-by-date

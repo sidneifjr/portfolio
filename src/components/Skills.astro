@@ -1,0 +1,56 @@
+---
+import astro from '../images/intro/astro.svg'
+import cypress from '../images/intro/cypress.svg'
+import next from '../images/intro/nextjs.svg'
+import node from '../images/intro/node.svg'
+import react from '../images/intro/react.svg'
+import typescript from '../images/intro/typescript.svg'
+
+import { Image } from 'astro:assets'
+
+const skills = [
+  {
+    image: react,
+    name: 'React',
+  },
+  {
+    image: next,
+    name: 'Next.js',
+  },
+  {
+    image: typescript,
+    name: 'TypeScript',
+  },
+  {
+    image: astro,
+    name: 'Astro',
+  },
+  {
+    image: node,
+    name: 'Node.js',
+  },
+  {
+    image: cypress,
+    name: 'Cypress',
+  },
+]
+---
+
+<ul class="pt-8 flex gap-12">
+  {
+    skills.map((skill) => (
+      <li class="font-secondary text-white flex flex-col justify-center items-center gap-3">
+        <Image
+          width={56}
+          height={56}
+          class="h-14 w-14"
+          src={skill.image}
+          alt={skill.name}
+          quality={100}
+        />
+
+        <span class="font-medium">{skill.name}</span>
+      </li>
+    ))
+  }
+</ul>
