@@ -12,6 +12,7 @@ describe('Nav links are working', () => {
       .get(nav)
       .get('li:first-child a')
       .should('have.text', 'Portfolio')
+      .click()
   })
 
   it('About', () => {
@@ -19,6 +20,7 @@ describe('Nav links are working', () => {
       .get(nav)
       .get('li:nth-child(2) a')
       .should('have.text', 'About')
+      .click()
   })
 
   it('Contact', () => {
@@ -26,5 +28,6 @@ describe('Nav links are working', () => {
       .get(nav)
       .get('li:nth-child(3) a')
       .should('have.text', 'Contact')
+      .click()
   })
 })
