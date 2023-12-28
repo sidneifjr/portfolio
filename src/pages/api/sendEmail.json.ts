@@ -8,7 +8,7 @@ const resend = new Resend(import.meta.env.SECRET_RESEND_API_KEY)
  * Ao usar o método GET, seria acessível em "/api/sendEmail.json". Porém, qualquer usuário que acessasse tal tela dispararia o email.
  * Assim, o método POST é ideal para controle do envio e, consequentemente, um Node adapter é necessário.
  */
-export const POST: APIRoute = async ({ params, request }) => {
+export const POST: APIRoute = async ({ request }) => {
   const body = await request.json()
 
   const { to, from, html, subject, text } = body
