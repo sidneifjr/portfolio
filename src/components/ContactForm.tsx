@@ -56,7 +56,7 @@ export const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'onboarding@resend.dev',
+          from: 'sfarias.dev@resend.dev',
           to: 'sfarias.dev@gmail.com',
           subject: `${subject} - From ${name}`,
           html: `<p>${message}</p>`,
