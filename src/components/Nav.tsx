@@ -12,7 +12,7 @@ export const Nav = ({ navLinks, activeItem }: NavLinksTypes) => {
   const pathname = activeItem.replace('/', '')
 
   return (
-    <nav>
+    <nav data-cy="nav">
       {/* <Menu /> */}
 
       <ul className="flex gap-6">
