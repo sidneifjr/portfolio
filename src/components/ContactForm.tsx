@@ -88,6 +88,7 @@ export const ContactForm = () => {
       <form
         onSubmit={(e) => handleSubmit(e)}
         className="w-full max-w-[676px] m-auto flex flex-1 flex-col justify-center items-center gap-7"
+        data-cy="form"
       >
         <MotionWrapper
           initial={{ y: '25%', opacity: 0 }}
@@ -110,6 +111,7 @@ export const ContactForm = () => {
               name="name"
               placeholder="Seu nome"
               onKeyDown={(e) => handleInput(e, 'fieldset1')}
+              data-cy="nameInput"
             />
           </fieldset>
         </MotionWrapper>
@@ -136,6 +138,7 @@ export const ContactForm = () => {
                 name="subject"
                 placeholder="Assunto"
                 onKeyDown={(e) => handleInput(e, 'fieldset2')}
+                data-cy="subjectInput"
               />
             </fieldset>
           </MotionWrapper>
@@ -161,10 +164,14 @@ export const ContactForm = () => {
                 className="w-full h-40 bg-transparent text-white border-2 border-white/50 rounded-md p-1 outline-0 transition resize-none placeholder:text-white placeholder:opacity-50 focus:border-white"
                 name="message"
                 onKeyDown={(e) => handleInput(e)}
+                data-cy="messageTextarea"
               ></textarea>
             </fieldset>
 
-            <button className="w-24 text-lg min-h-10 font-medium text-white/50 text-center border-2 border-white/50 rounded-md py-1 px-4 mx-auto flex justify-center items-center transition placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white focus:text-white">
+            <button
+              data-cy="submitBtn"
+              className="w-24 text-lg min-h-10 font-medium text-white/50 text-center border-2 border-white/50 rounded-md py-1 px-4 mx-auto flex justify-center items-center transition placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white focus:text-white"
+            >
               {isRequestRunning ? (
                 <img src={loader.src} alt="loader" />
               ) : (
@@ -175,7 +182,7 @@ export const ContactForm = () => {
         )}
       </form>
 
-      <Toaster richColors />
+      <Toaster data-cy="toast" richColors />
     </>
   )
 }
