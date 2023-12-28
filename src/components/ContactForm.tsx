@@ -66,9 +66,9 @@ export const ContactForm = () => {
         body: JSON.stringify({
           from: 'sfarias.dev@resend.dev',
           to: 'sfarias.dev@gmail.com',
-          subject: `${subject} - From ${name}`,
-          html: `<p>${message}</p>`,
-          text: `${message}`,
+          subject: `${JSON.stringify(subject)} - From ${JSON.stringify(name)}`,
+          html: `<p>${JSON.stringify(message)}</p>`,
+          text: `${JSON.stringify(message)}`,
         }),
       })
 
