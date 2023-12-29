@@ -98,13 +98,7 @@ export const ContactForm = ({
   return (
     <>
       <Form.Root onSubmit={(e) => handleSubmit(e)} data-cy="form">
-        <MotionWrapper
-          initial={{ y: '25%', opacity: 0 }}
-          animate={{ y: '0%', opacity: 1 }}
-          transition={{ duration: 0.75, ease: [0.33, 1, 0.68, 1] }}
-          exit={{ y: '-15%', opacity: 0 }}
-          className="w-full"
-        >
+        <MotionWrapper className="w-full">
           <Form.Fieldset>
             <Form.Label htmlFor="name">{labels[0]}</Form.Label>
 
@@ -118,13 +112,7 @@ export const ContactForm = ({
         </MotionWrapper>
 
         {fieldset1 && (
-          <MotionWrapper
-            initial={{ y: '25%', opacity: 0 }}
-            animate={{ y: '0%', opacity: 1 }}
-            transition={{ duration: 0.75, ease: [0.33, 1, 0.68, 1] }}
-            exit={{ y: '-15%', opacity: 0 }}
-            className="w-full"
-          >
+          <MotionWrapper className="w-full">
             <Form.Fieldset>
               <Form.Label htmlFor="subject">{labels[1]}</Form.Label>
 
@@ -139,13 +127,7 @@ export const ContactForm = ({
         )}
 
         {fieldset2 && (
-          <MotionWrapper
-            initial={{ y: '25%', opacity: 0 }}
-            animate={{ y: '0%', opacity: 1 }}
-            transition={{ duration: 0.75, ease: [0.33, 1, 0.68, 1] }}
-            exit={{ y: '-15%', opacity: 0 }}
-            className="w-full flex flex-col gap-7"
-          >
+          <MotionWrapper className="w-full flex flex-col gap-7">
             <Form.Fieldset>
               <Form.Label htmlFor="message">{labels[2]}</Form.Label>
 
@@ -157,16 +139,13 @@ export const ContactForm = ({
               />
             </Form.Fieldset>
 
-            <button
-              data-cy="submitBtn"
-              className="w-24 text-lg min-h-10 font-medium text-white/50 text-center border-2 border-white/50 rounded-md py-1 px-4 mx-auto flex justify-center items-center transition placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white focus:text-white"
-            >
+            <Form.Button data-cy="submitBtn">
               {isRequestRunning ? (
                 <img src={loader.src} alt="loader" />
               ) : (
                 buttonText[0]
               )}
-            </button>
+            </Form.Button>
           </MotionWrapper>
         )}
       </Form.Root>

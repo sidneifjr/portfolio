@@ -2,6 +2,14 @@
 
 Um portfolio minimalista, feito com Astro e React.
 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![PNPM](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=f69220)
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+
 ## To Do
 
 - [x] Github API.
@@ -31,6 +39,10 @@ Um portfolio minimalista, feito com Astro e React.
 - [x] Home: Exibir ícones referentes a cada skill.
 
 - [x] i18n (https://docs.astro.build/en/recipes/i18n/).
+
+- [x] Contato: abstrair o form em um componente à parte.
+
+- [x] Contato: extender propriedades do elemento HTML para cada subcomponente de Form, para obter todas as propriedades associadas ao mesmo.
 
 ## Aprendizado
 
