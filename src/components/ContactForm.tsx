@@ -7,8 +7,6 @@ import { Toaster, toast } from 'sonner'
 import loader from '../images/loader.svg'
 
 export const ContactForm = ({ labels, placeholders, buttonText }) => {
-  console.log(labels, placeholders, buttonText)
-
   const [fieldset1, setFieldset1] = useState(false)
   const [fieldset2, setFieldset2] = useState(false)
 
