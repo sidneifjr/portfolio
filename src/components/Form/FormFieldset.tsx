@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 
-type FormFieldsetProps = {
+interface FormFieldsetProps
+  extends React.FieldsetHTMLAttributes<HTMLFieldSetElement> {
   children: ReactNode
 }
 

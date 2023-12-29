@@ -1,4 +1,4 @@
-type FormInputProps = {
+interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string
   placeholder: string
   onKeyDown: (e: any) => void

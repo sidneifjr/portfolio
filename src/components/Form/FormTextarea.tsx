@@ -1,4 +1,5 @@
-type FormTextareaProps = {
+interface FormTextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string
   placeholder: string
   onKeyDown: (e: any) => void

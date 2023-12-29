@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-type FormLabelProps = {
+interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   htmlFor: string
   children: ReactNode
 }

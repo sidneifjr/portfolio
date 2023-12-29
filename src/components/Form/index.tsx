@@ -1,3 +1,4 @@
+import { FormButton } from './FormButton'
 import { FormFieldset } from './FormFieldset'
 import { FormInput } from './FormInput'
 import { FormLabel } from './FormLabel'
@@ -10,4 +11,5 @@ export const Form = {
   Label: FormLabel,
   Input: FormInput,
   Textarea: FormTextarea,
+  Button: FormButton,
 }
