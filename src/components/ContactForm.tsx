@@ -6,7 +6,19 @@ import { Toaster, toast } from 'sonner'
 
 import loader from '../images/loader.svg'
 
-export const ContactForm = ({ labels, placeholders, buttonText }) => {
+import { Form } from './Form'
+
+type ContactFormProps = {
+  labels: string[]
+  placeholders: string[]
+  buttonText: string
+}
+
+export const ContactForm = ({
+  labels,
+  placeholders,
+  buttonText,
+}: ContactFormProps) => {
   const [fieldset1, setFieldset1] = useState(false)
   const [fieldset2, setFieldset2] = useState(false)
 
@@ -85,11 +97,7 @@ export const ContactForm = ({ labels, placeholders, buttonText }) => {
 
   return (
     <>
-      <form
-        onSubmit={(e) => handleSubmit(e)}
-        className="w-full max-w-[676px] m-auto flex flex-1 flex-col justify-center items-center gap-7"
-        data-cy="form"
-      >
+      <Form.Root onSubmit={(e) => handleSubmit(e)} data-cy="form">
         <MotionWrapper
           initial={{ y: '25%', opacity: 0 }}
           animate={{ y: '0%', opacity: 1 }}
@@ -97,23 +105,16 @@ export const ContactForm = ({ labels, placeholders, buttonText }) => {
           exit={{ y: '-15%', opacity: 0 }}
           className="w-full"
         >
-          <fieldset className="w-full flex flex-col">
-            <label
-              className="font-secondary text-lg text-white pb-2 block"
-              htmlFor="name"
-            >
-              {labels[0]}
-            </label>
+          <Form.Fieldset>
+            <Form.Label htmlFor="name">{labels[0]}</Form.Label>
 
-            <input
-              className="w-full bg-transparent text-white border-b-2 border-white/50 pb-1 placeholder:text-white placeholder:opacity-50 focus:border-white outline-0 transition"
-              type="text"
+            <Form.Input
               name="name"
               placeholder={placeholders[0]}
-              onKeyDown={(e) => handleInput(e, 'fieldset1')}
+              onKeyDown={(e: any) => handleInput(e, 'fieldset1')}
               data-cy="nameInput"
             />
-          </fieldset>
+          </Form.Fieldset>
         </MotionWrapper>
 
         {fieldset1 && (
@@ -124,23 +125,16 @@ export const ContactForm = ({ labels, placeholders, buttonText }) => {
             exit={{ y: '-15%', opacity: 0 }}
             className="w-full"
           >
-            <fieldset className="w-full flex flex-col">
-              <label
-                className="font-secondary text-lg text-white pb-2 block"
-                htmlFor="subject"
-              >
-                {labels[1]}
-              </label>
+            <Form.Fieldset>
+              <Form.Label htmlFor="subject">{labels[1]}</Form.Label>
 
-              <input
-                className="w-full bg-transparent text-white border-b-2 border-white/50 pb-1 placeholder:text-white placeholder:opacity-50 focus:border-white outline-0 transition"
-                type="text"
+              <Form.Input
                 name="subject"
                 placeholder={placeholders[1]}
-                onKeyDown={(e) => handleInput(e, 'fieldset2')}
+                onKeyDown={(e: any) => handleInput(e, 'fieldset2')}
                 data-cy="subjectInput"
               />
-            </fieldset>
+            </Form.Fieldset>
           </MotionWrapper>
         )}
 
@@ -152,22 +146,16 @@ export const ContactForm = ({ labels, placeholders, buttonText }) => {
             exit={{ y: '-15%', opacity: 0 }}
             className="w-full flex flex-col gap-7"
           >
-            <fieldset className="w-full flex flex-col">
-              <label
-                className="font-secondary text-lg text-white pb-2 block"
-                htmlFor="message"
-              >
-                {labels[2]}
-              </label>
+            <Form.Fieldset>
+              <Form.Label htmlFor="message">{labels[2]}</Form.Label>
 
-              <textarea
-                className="w-full h-40 bg-transparent text-white border-2 border-white/50 rounded-md p-1 outline-0 transition resize-none placeholder:text-white placeholder:opacity-50 focus:border-white"
+              <Form.Textarea
                 name="message"
                 placeholder={placeholders[2]}
-                onKeyDown={(e) => handleInput(e)}
+                onKeyDown={(e: any) => handleInput(e)}
                 data-cy="messageTextarea"
-              ></textarea>
-            </fieldset>
+              />
+            </Form.Fieldset>
 
             <button
               data-cy="submitBtn"
@@ -181,7 +169,7 @@ export const ContactForm = ({ labels, placeholders, buttonText }) => {
             </button>
           </MotionWrapper>
         )}
-      </form>
+      </Form.Root>
 
       <Toaster data-cy="toast" richColors />
     </>
