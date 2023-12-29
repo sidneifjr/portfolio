@@ -1,0 +1,20 @@
+---
+import { githubAccessToken } from '../../constants/accessToken'
+import { type RepoTypes } from '../../types/index'
+
+import { PortfolioCarousel } from '../../components/PortfolioCarousel'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const repos: RepoTypes = await fetch(
+  `${import.meta.env.PUBLIC_USER_API}/repos`,
+  {
+    headers: {
+      authorization: `token ${githubAccessToken}`,
+    },
+  }
+).then((res) => res.json())
+---
+
+<BaseLayout title="Portfolio">
+  <PortfolioCarousel client:load repos={repos} />
+</BaseLayout>

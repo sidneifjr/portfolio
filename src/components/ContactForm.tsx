@@ -6,7 +6,9 @@ import { Toaster, toast } from 'sonner'
 
 import loader from '../images/loader.svg'
 
-export const ContactForm = () => {
+export const ContactForm = ({ labels, placeholders, buttonText }) => {
+  console.log(labels, placeholders, buttonText)
+
   const [fieldset1, setFieldset1] = useState(false)
   const [fieldset2, setFieldset2] = useState(false)
 
@@ -102,14 +104,14 @@ export const ContactForm = () => {
               className="font-secondary text-lg text-white pb-2 block"
               htmlFor="name"
             >
-              Nome
+              {labels[0]}
             </label>
 
             <input
               className="w-full bg-transparent text-white border-b-2 border-white/50 pb-1 placeholder:text-white placeholder:opacity-50 focus:border-white outline-0 transition"
               type="text"
               name="name"
-              placeholder="Seu nome"
+              placeholder={placeholders[0]}
               onKeyDown={(e) => handleInput(e, 'fieldset1')}
               data-cy="nameInput"
             />
@@ -129,14 +131,14 @@ export const ContactForm = () => {
                 className="font-secondary text-lg text-white pb-2 block"
                 htmlFor="subject"
               >
-                Assunto
+                {labels[1]}
               </label>
 
               <input
                 className="w-full bg-transparent text-white border-b-2 border-white/50 pb-1 placeholder:text-white placeholder:opacity-50 focus:border-white outline-0 transition"
                 type="text"
                 name="subject"
-                placeholder="Assunto"
+                placeholder={placeholders[1]}
                 onKeyDown={(e) => handleInput(e, 'fieldset2')}
                 data-cy="subjectInput"
               />
@@ -157,12 +159,13 @@ export const ContactForm = () => {
                 className="font-secondary text-lg text-white pb-2 block"
                 htmlFor="message"
               >
-                Mensagem
+                {labels[2]}
               </label>
 
               <textarea
                 className="w-full h-40 bg-transparent text-white border-2 border-white/50 rounded-md p-1 outline-0 transition resize-none placeholder:text-white placeholder:opacity-50 focus:border-white"
                 name="message"
+                placeholder={placeholders[2]}
                 onKeyDown={(e) => handleInput(e)}
                 data-cy="messageTextarea"
               ></textarea>
@@ -175,7 +178,7 @@ export const ContactForm = () => {
               {isRequestRunning ? (
                 <img src={loader.src} alt="loader" />
               ) : (
-                'Enviar'
+                buttonText[0]
               )}
             </button>
           </MotionWrapper>

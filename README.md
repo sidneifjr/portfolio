@@ -30,6 +30,8 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Home: Exibir ícones referentes a cada skill.
 
+- [x] i18n (https://docs.astro.build/en/recipes/i18n/).
+
 ## Aprendizado
 
 1. Sorting by date: https://stackoverflow.com/questions/65812772/filtering-then-sorting-object-array-by-date

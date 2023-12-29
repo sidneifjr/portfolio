@@ -1,0 +1,47 @@
+---
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from '../i18n/utils'
+
+const { pathname } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang)
+
+const navLinks = [
+  {
+    name: t('nav.portfolio'),
+    url: translatePath('/portfolio/'),
+  },
+  {
+    name: t('nav.about'),
+    url: translatePath('/about/'),
+  },
+  {
+    name: t('nav.contact'),
+    url: translatePath('/contact/'),
+  },
+]
+---
+
+<nav data-cy="nav">
+  <ul class="flex gap-6">
+    {
+      navLinks.map((navLink) => {
+        return (
+          <li class="font-secondary text-xl text-white hover:text-white/90 transition">
+            <a
+              href={navLink.url}
+              class={pathname === navLink.url ? 'text-[#60a0ef]' : ''}
+            >
+              {navLink.name}
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</nav>

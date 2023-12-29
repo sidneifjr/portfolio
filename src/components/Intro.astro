@@ -7,6 +7,11 @@ import profile from '../images/intro/profile.jpg'
 
 import Skills from './Skills.astro'
 
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
 type DataTypes = {
   login: string
   id: number
@@ -63,13 +68,21 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
 
     <div class="max-w-[520px] flex flex-col gap-6">
       <p class="w-full text-lg text-white">
-        Olá! Eu sou <strong>{userData?.name}</strong>, dev front-end. Trabalho à
-        mais de cinco anos na criação de interfaces agradáveis e modernas.
-        Sempre à procura de novos desafios e soluções eficientes.
+        {
+          t('intro.main').replace(
+            '<strong>{userData?.name}</strong>',
+            `${userData?.name}`
+          )
+        }
       </p>
 
       <p class="w-full text-lg text-white">
-        Atualmente, resido em <strong>{userData?.location}</strong>.
+        {
+          t('intro.sub').replace(
+            '<strong>{userData?.location}</strong>',
+            `${userData?.location}`
+          )
+        }
       </p>
     </div>
   </div>

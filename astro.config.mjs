@@ -9,5 +9,12 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   integrations: [tailwind(), react()],
   output: "hybrid",
-  adapter: vercel()
+  adapter: vercel(),
+  i18n: {
+    defaultLocale: 'pt-br',
+    locales: ["en", "pt-br"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  }
 });

@@ -1,9 +1,9 @@
 ---
-import { ContactForm } from '../components/ContactForm'
+import { ContactForm } from '../../components/ContactForm'
 
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
 
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -19,6 +19,8 @@ const contactPlaceholders = [
   t('contact.placeholder.subject'),
   t('contact.placeholder.message'),
 ]
+
+const contactButton = [t('contact.button')]
 ---
 
 <BaseLayout title="Contato">
@@ -26,5 +28,6 @@ const contactPlaceholders = [
     client:load
     labels={contactLabels}
     placeholders={contactPlaceholders}
+    buttonText={contactButton}
   />
 </BaseLayout>

@@ -1,14 +1,23 @@
-// import { Menu } from 'lucide-react'
 import { useId } from 'react'
 
 type NavLinksTypes = {
-  navLinks: string[]
   activeItem: string
 }
 
-export const Nav = ({ navLinks, activeItem }: NavLinksTypes) => {
-  // const [isOpen, setIsOpen] = useState<boolean>()
+export const Nav = ({ activeItem }: NavLinksTypes) => {
   const id = useId()
+  const navLinks = [
+    {
+      item: 'Portfólio',
+    },
+    {
+      item: 'Sobre',
+    },
+    {
+      item: 'Contato',
+    },
+  ]
+
   const pathname = activeItem.replace('/', '')
 
   return (
@@ -16,16 +25,18 @@ export const Nav = ({ navLinks, activeItem }: NavLinksTypes) => {
       {/* <Menu /> */}
 
       <ul className="flex gap-6">
-        {navLinks.map((navLink: string) => {
+        {navLinks.map((navLink: { item: string }) => {
           return (
             <li
               key={id}
               className="font-secondary text-xl text-white hover:text-white/90 transition"
             >
               <a
-                href={`/${navLink.toLowerCase()}`}
+                href={`/${navLink.item.toLowerCase()}`}
                 className={
-                  pathname === navLink.toLowerCase() ? 'text-[#60a0ef]' : ''
+                  pathname === navLink.item.toLowerCase()
+                    ? 'text-[#60a0ef]'
+                    : ''
                 }
               >
                 {navLink}
