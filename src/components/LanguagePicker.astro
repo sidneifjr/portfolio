@@ -12,7 +12,7 @@ const translatePath = useTranslatedPath(lang)
 const route = getRouteFromUrl(Astro.url)
 ---
 
-<ul class="font-secondary absolute -right-40 flex gap-3">
+<ul class="font-secondary lg:absolute -right-40 flex gap-3">
   {
     Object.entries(languages).map(([lang, { alias }]) => (
       <li class="w-10 h-8">

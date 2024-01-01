@@ -57,7 +57,9 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
 <div
   class="max-w-[656px] m-auto flex flex-1 items-center justify-center flex-col"
 >
-  <div class="border-b pb-6 flex gap-7">
+  <div
+    class="w-full border-b pb-6 flex flex-col items-center gap-7 sm:flex-row sm:items-start"
+  >
     <Image
       width={128}
       height={128}
@@ -67,7 +69,7 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
     />
 
     <div class="max-w-[520px] flex flex-col gap-6">
-      <p class="w-full text-lg text-white">
+      <p class="w-full text-base md:text-lg text-white">
         {
           t('intro.main').replace(
             '<strong>{userData?.name}</strong>',
@@ -76,7 +78,7 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
         }
       </p>
 
-      <p class="w-full text-lg text-white">
+      <p class="w-full text-base md:text-lg text-white">
         {
           t('intro.sub').replace(
             '<strong>{userData?.location}</strong>',
