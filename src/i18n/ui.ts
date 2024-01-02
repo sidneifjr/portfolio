@@ -27,6 +27,8 @@ export const ui = {
     'contact.placeholder.subject': 'Seu assunto',
     'contact.placeholder.message': 'Sua mensagem',
     'contact.button': 'Enviar',
+    'contact.toaster.success': 'Sucesso: mensagem enviada.',
+    'contact.toaster.error': 'Erro: mensagem não-enviada.',
   },
 
   en: {
@@ -44,6 +46,8 @@ export const ui = {
     'contact.placeholder.subject': 'Your subject',
     'contact.placeholder.message': 'Your message',
     'contact.button': 'Submit',
+    'contact.toaster.success': 'Success: message sent.',
+    'contact.toaster.error': 'Error: message not sent.',
   },
 } as const
 

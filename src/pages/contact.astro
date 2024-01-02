@@ -23,6 +23,11 @@ const contactPlaceholders = [
 ]
 
 const contactButton = t('contact.button')
+
+const contactToaster = [
+  t('contact.toaster.success'),
+  t('contact.toaster.error'),
+]
 ---
 
 <BaseLayout title="Contato">
@@ -46,5 +51,6 @@ const contactButton = t('contact.button')
     labels={contactLabels}
     placeholders={contactPlaceholders}
     buttonText={contactButton}
+    contactToaster={contactToaster}
   />
 </BaseLayout>

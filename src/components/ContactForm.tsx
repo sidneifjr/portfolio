@@ -12,14 +12,15 @@ type ContactFormProps = {
   labels: string[]
   placeholders: string[]
   buttonText: string
+  contactToaster: string[]
 }
 
 export const ContactForm = ({
   labels,
   placeholders,
   buttonText,
+  contactToaster,
 }: ContactFormProps) => {
-  console.log(buttonText)
   const [fieldset1, setFieldset1] = useState(false)
   const [fieldset2, setFieldset2] = useState(false)
 
@@ -87,11 +88,12 @@ export const ContactForm = ({
 
       const data = await res.json()
       setIsRequestRunning(false)
-      toast.success('Success: message sent.')
+      console.log(contactToaster)
+      toast.success(contactToaster[0])
 
       return data
     } catch (e) {
-      toast.error('Error: message not sent.')
+      toast.error(contactToaster[1])
       console.log(e)
     }
   }
