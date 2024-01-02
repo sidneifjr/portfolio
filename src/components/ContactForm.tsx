@@ -19,6 +19,7 @@ export const ContactForm = ({
   placeholders,
   buttonText,
 }: ContactFormProps) => {
+  console.log(buttonText)
   const [fieldset1, setFieldset1] = useState(false)
   const [fieldset2, setFieldset2] = useState(false)
 
@@ -143,7 +144,7 @@ export const ContactForm = ({
               {isRequestRunning ? (
                 <img src={loader.src} alt="loader" />
               ) : (
-                buttonText[0]
+                buttonText
               )}
             </Form.Button>
           </MotionWrapper>
