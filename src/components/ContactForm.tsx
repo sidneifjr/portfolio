@@ -11,7 +11,7 @@ import { Form } from './Form'
 type ContactFormProps = {
   labels: string[]
   placeholders: string[]
-  buttonText: string
+  buttonText: string[]
 }
 
 export const ContactForm = ({

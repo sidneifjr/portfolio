@@ -1,9 +1,11 @@
 ---
 import { ContactForm } from '../../components/ContactForm'
-
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 
-import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+import { Image } from 'astro:assets'
+
+import resend from '../images/resend.svg'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -24,6 +26,21 @@ const contactButton = [t('contact.button')]
 ---
 
 <BaseLayout title="Contato">
+  <h2
+    class="w-full max-w-[676px] mx-auto text-xl text-white pb-8 flex flex-col justify-center items-center"
+  >
+    Powered by
+    <strong>
+      <Image
+        src={resend}
+        alt="Resend logo"
+        width={160}
+        height={160}
+        class="block"
+      />
+    </strong>
+  </h2>
+
   <ContactForm
     client:load
     labels={contactLabels}

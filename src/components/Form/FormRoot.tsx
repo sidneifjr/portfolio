@@ -13,7 +13,7 @@ export const FormRoot = ({
 }: FormRootProps) => {
   return (
     <form
-      className="w-full max-w-[676px] m-auto flex flex-1 flex-col justify-center items-center gap-7"
+      className="w-full max-w-[676px] h-[452px] mx-auto flex flex-col gap-7"
       onSubmit={onSubmit}
       data-cy={dataCy}
     >
