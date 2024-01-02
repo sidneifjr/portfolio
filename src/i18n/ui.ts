@@ -18,7 +18,7 @@ export const ui = {
     'nav.about': 'Sobre',
     'nav.contact': 'Contato',
     'intro.main':
-      'Olá! Eu sou <strong>{userData?.name}</strong>, eng. front-end. Trabalho à mais de cinco anos na criação de interfaces agradáveis e modernas. Sempre à procura de novos desafios e soluções eficientes.',
+      'Olá! Eu sou <strong>{userData?.name}</strong>, eng. front-end. Trabalho há mais de cinco anos na criação de interfaces agradáveis e modernas. Sempre à procura de novos desafios e soluções eficientes.',
     'intro.sub': 'Atualmente, resido em <strong>{userData?.location}</strong>.',
     'contact.label.name': 'Nome',
     'contact.label.subject': 'Assunto',
