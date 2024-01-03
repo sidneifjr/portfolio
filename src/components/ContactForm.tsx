@@ -88,12 +88,12 @@ export const ContactForm = ({
 
       const data = await res.json()
       setIsRequestRunning(false)
-      console.log(contactToaster)
       toast.success(contactToaster[0])
 
       return data
     } catch (e) {
       toast.error(contactToaster[1])
+      setIsRequestRunning(false)
       console.log(e)
     }
   }
