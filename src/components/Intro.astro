@@ -1,13 +1,15 @@
 ---
-import { githubAccessToken } from '../constants/accessToken'
-
 import { Image } from 'astro:assets'
 
-import profile from '../images/intro/profile.jpg'
+import { FileText, Mail } from 'lucide-react'
+
+import { githubAccessToken } from '../constants/accessToken'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
 
 import Skills from './Skills.astro'
 
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import CV from '../images/cv-sidnei-farias-junior.pdf'
+import profile from '../images/intro/profile.jpg'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -86,6 +88,26 @@ const userData: DataTypes = await fetch(import.meta.env.PUBLIC_USER_API, {
           )
         }
       </p>
+
+      <div class="flex gap-4">
+        <a
+          href={CV}
+          target="_blank"
+          class="text-lg min-h-10 font-medium text-white text-center bg-blue rounded-md py-1 px-4 flex justify-center items-center gap-2 transition bg-green-550 placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white focus:text-white"
+        >
+          <FileText className="text-white" />
+          Ver currículo</a
+        >
+
+        <a
+          href="/contact"
+          title="Email"
+          class="text-lg min-h-10 font-medium text-white text-center border border-white rounded-md py-1 px-4 flex justify-center items-center gap-2 transition placeholder:text-white placeholder:opacity-50 hover:border-white hover:text-white focus:text-white"
+        >
+          <Mail className="text-white" />
+          Fale Comigo</a
+        >
+      </div>
     </div>
   </div>
 

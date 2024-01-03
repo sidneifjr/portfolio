@@ -8,7 +8,11 @@ export default {
       fontFamily: {
         sans: ["Lato", ...defaultTheme.fontFamily.sans],
         secondary: ['Montserrat Variable', 'sans-serif']
-      }
-    }
+      },
+
+      colors: {
+        blue: '#2783D6'
+      },
+    },
   },
 }
