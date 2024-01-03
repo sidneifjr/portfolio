@@ -8,8 +8,9 @@ const pathname = Astro.url.pathname
   class="w-full max-w-[656px] py-7 mx-auto fixed left-[50%] translate-x-[-50%] flex justify-between items-center px-7 md:px-0 lg:py-7"
   data-cy="header"
 >
-  <a href="/">
+  <a href="/" class="flex items-center gap-2">
     <h1 class="font-secondary text-4xl text-white">SF</h1>
+    <small class="font-secondary text-sm text-white">(RC. 1)</small>
   </a>
 
   <Nav activeItem={pathname} />
