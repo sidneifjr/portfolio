@@ -14,35 +14,19 @@ Um portfolio minimalista, feito com Astro e React.
 
 - [x] Github API.
 
-- [x] Contato: exibir os próximos campos, conforme os anteriores são preenchidos.
+- [x] FontSource.
 
-- [x] Contato: trocar cor da borda inferior, quando um campo é preenchido.
+- [x] Resend.
 
 - [x] View Transitions.
 
-- [x] Contato: animar exibição de cada input, conforme os campos são preenchidos.
+- [x] Toast.
 
-- [x] Definir fontes, via FontSource.
+- [x] Testes E2E.
 
-- [x] Home/Portfolio: mover assets externos para o interior da aplicação, permitindo otimização nativa via Astro.
+- [x] i18n.
 
-- [x] Portfolio: substituir modelo de colunas verticais por um carousel.
-
-- [x] Contato: Integração do formulário com Resend.
-
-- [x] Contato: Notificar usuário sobre o envio da mensagem.
-
-- [x] Contato: Adicionar loading, entre o submit e o surgimento da notificação.
-
-- [x] Testes: Implementar E2E.
-
-- [x] Home: Exibir ícones referentes a cada skill.
-
-- [x] i18n (https://docs.astro.build/en/recipes/i18n/).
-
-- [x] Contato: abstrair o form em um componente à parte.
-
-- [x] Contato: extender propriedades do elemento HTML para cada subcomponente de Form, para obter todas as propriedades associadas ao mesmo.
+- [x] Composition Pattern.
 
 ## Aprendizado
 
