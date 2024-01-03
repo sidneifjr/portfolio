@@ -71,6 +71,13 @@ export const ContactForm = ({
 
     const { name, subject, message } = newFormData
 
+    if (name === '' || subject === '' || message === '') {
+      toast.error(contactToaster[1])
+      setIsRequestRunning(false)
+
+      return
+    }
+
     try {
       const res = await fetch('/api/sendEmail.json', {
         method: 'POST',
