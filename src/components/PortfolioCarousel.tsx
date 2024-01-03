@@ -29,7 +29,7 @@ export const PortfolioCarousel = ({ repos }: any) => {
 
   return (
     <div className="w-full max-w-[1024px] m-auto max-h-[440px]">
-      <div className="overflow-hidden  border border-slate-700" ref={emblaRef}>
+      <div className="overflow-hidden border border-slate-700" ref={emblaRef}>
         <div className="flex gap-4">
           {repos.map((repo: RepoTypes, index: number) => {
             return (
@@ -49,20 +49,22 @@ export const PortfolioCarousel = ({ repos }: any) => {
                         height={438}
                         src={repoImages[index].src}
                         alt={repo.name}
-                        className="w-full h-full object-cover object-top hover:scale-105 transition duration-200"
+                        className="w-full h-full object-contain md:object-cover object-center md:object-top hover:scale-105 transition duration-200"
                       />
 
                       <div className="h-full w-full absolute top-0 bg-black/40 pointer-events-none" />
                     </div>
 
                     <div className="relative z-10 pointer-events-none">
-                      <strong className="font-secondary text-lg font-semibold text-white capitalize">
+                      <strong className="font-secondary md:text-lg font-semibold text-white capitalize">
                         {repo.name.replaceAll('-', ' ')}
                       </strong>
 
-                      <p className="text-white">{repo.description}</p>
+                      <p className="text-white text-sm md:text-base">
+                        {repo.description}
+                      </p>
 
-                      <p className="text-white capitalize pt-2">
+                      <p className="text-white text-sm md:text-base capitalize pt-2">
                         <strong>Stack</strong>: {repo.topics.join(', ')}.
                       </p>
                     </div>
