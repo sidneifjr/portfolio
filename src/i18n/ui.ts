@@ -18,8 +18,8 @@ export const ui = {
     'nav.about': 'Sobre',
     'nav.contact': 'Contato',
     'intro.main':
-      'Olá! Eu sou <strong>{userData?.name}</strong>, eng. front-end. Trabalho há mais de cinco anos na criação de interfaces agradáveis e modernas. Sempre à procura de novos desafios e soluções eficientes.',
-    'intro.sub': 'Atualmente, resido em <strong>{userData?.location}</strong>.',
+      'Olá! Eu sou <strong>{userData?.name}</strong>, engenheiro de front-end. Trabalho há mais de cinco anos na criação de interfaces agradáveis e modernas. Sou apaixonado pela área, à procura de novos desafios e soluções eficientes.',
+    'intro.sub': 'Atualmente resido em <strong>{userData?.location}</strong>.',
     'contact.label.name': 'Nome',
     'contact.label.subject': 'Assunto',
     'contact.label.message': 'Mensagem',
@@ -28,7 +28,7 @@ export const ui = {
     'contact.placeholder.message': 'Sua mensagem',
     'contact.button': 'Enviar',
     'contact.toaster.success': 'Sucesso: mensagem enviada.',
-    'contact.toaster.error': 'Erro: mensagem não-enviada.',
+    'contact.toaster.error': 'Erro: mensagem não enviada.',
   },
 
   en: {
@@ -36,9 +36,8 @@ export const ui = {
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'intro.main':
-      "Hi! I am <strong>{userData?.name}</strong>, front-end engineer. I've worked for over five years in the creation of pleasant and modern interfaces. Always looking for challenges and efficient solutions.",
-    'intro.sub':
-      'Currently, I reside at <strong>{userData?.location}</strong>.',
+      "Hi! My name is <strong>{userData?.name}</strong> and I am a front-end engineer. I've been working for over five years creating pleasant and modern interfaces. I'm passionate, always looking for challenges and efficient solutions.",
+    'intro.sub': 'Currently I reside at <strong>{userData?.location}</strong>.',
     'contact.label.name': 'Name',
     'contact.label.subject': 'Subject',
     'contact.label.message': 'Message',
