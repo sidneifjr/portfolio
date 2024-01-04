@@ -1,14 +1,10 @@
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useState,
-  type SetStateAction,
-} from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
-import { type RepoTypes } from '../types/index'
+import { useCallback, useEffect, useState, type SetStateAction } from 'react'
 
 import useEmblaCarousel from 'embla-carousel-react'
+
+import { type RepoTypes } from '../types/index'
 
 import { Dot } from './Dot'
 
@@ -30,8 +26,6 @@ export const PortfolioCarousel = ({ repos }: RepoTypes) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false })
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
-
-  const id = useId()
 
   const scrollTo = useCallback(
     (index: number) => emblaApi?.scrollTo(index),
@@ -72,7 +66,7 @@ export const PortfolioCarousel = ({ repos }: RepoTypes) => {
           {repos.map((repo: RepoTypes, index: number) => {
             return (
               <div
-                key={id}
+                key={repo.id}
                 className="flex-shrink-0 flex-grow-0 basis-full min-w-0"
               >
                 <a
@@ -117,7 +111,7 @@ export const PortfolioCarousel = ({ repos }: RepoTypes) => {
       <div className="pt-8 relative flex justify-center gap-4">
         {scrollSnaps.map((_, index) => (
           <Dot
-            key={index}
+            key={uuidv4}
             onClick={() => scrollTo(index)}
             className={'h-0.5 w-10 bg-white rounded-lg transition'.concat(
               index === selectedIndex ? ' !bg-blue' : ''

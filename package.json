@@ -30,13 +30,15 @@
     "@astrojs/vercel": "^6.1.1",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
-    "typescript": "^5.3.3",
-    "sharp": "^0.33.1",
+    "@types/uuid": "^9.0.7",
     "@typescript-eslint/parser": "^6.16.0",
     "cypress": "^13.6.2",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.0",
     "prettier": "3.1.1",
-    "prettier-plugin-astro": "^0.12.3"
+    "prettier-plugin-astro": "^0.12.3",
+    "sharp": "^0.33.1",
+    "typescript": "^5.3.3",
+    "uuid": "^9.0.1"
   }
 }
