@@ -1,7 +1,16 @@
-import { useEffect, useId } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useState,
+  type SetStateAction,
+} from 'react'
+
 import { type RepoTypes } from '../types/index'
 
 import useEmblaCarousel from 'embla-carousel-react'
+
+import { Dot } from './Dot'
 
 import battlebitArsenal from '../images/portfolio/battlebit-arsenal.png'
 import igniteShop from '../images/portfolio/ignite-shop.png'
@@ -17,19 +26,48 @@ const repoImages = [
   toDoList,
 ]
 
-export const PortfolioCarousel = ({ repos }: any) => {
+export const PortfolioCarousel = ({ repos }: RepoTypes) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false })
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+
   const id = useId()
 
+  const scrollTo = useCallback(
+    (index: number) => emblaApi?.scrollTo(index),
+    [emblaApi]
+  )
+
+  const onInit = useCallback(
+    (emblaApi: { scrollSnapList: () => SetStateAction<number[]> }) => {
+      setScrollSnaps(emblaApi.scrollSnapList())
+    },
+    []
+  )
+
+  const onSelect = useCallback(
+    (emblaApi: { selectedScrollSnap: () => SetStateAction<number> }) => {
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+    },
+    []
+  )
+
   useEffect(() => {
-    if (emblaApi) {
-      emblaApi.slideNodes()
-    }
-  }, [emblaApi])
+    if (!emblaApi) return
+
+    onInit(emblaApi)
+    onSelect(emblaApi)
+
+    emblaApi.on('reInit', onInit)
+    emblaApi.on('reInit', onSelect)
+    emblaApi.on('select', onSelect)
+
+    emblaApi.slideNodes()
+  }, [emblaApi, onInit, onSelect])
 
   return (
-    <div className="w-full max-w-[1024px] m-auto max-h-[440px]">
-      <div className="overflow-hidden border border-slate-700" ref={emblaRef}>
+    <div className="w-full max-w-[1024px] m-auto max-h-[480px]">
+      <div className="border border-slate-700 overflow-hidden" ref={emblaRef}>
         <div className="flex gap-4">
           {repos.map((repo: RepoTypes, index: number) => {
             return (
@@ -74,6 +112,18 @@ export const PortfolioCarousel = ({ repos }: any) => {
             )
           })}
         </div>
+      </div>
+
+      <div className="pt-8 relative flex justify-center gap-4">
+        {scrollSnaps.map((_, index) => (
+          <Dot
+            key={index}
+            onClick={() => scrollTo(index)}
+            className={'h-0.5 w-10 bg-white rounded-lg transition'.concat(
+              index === selectedIndex ? ' !bg-blue' : ''
+            )}
+          />
+        ))}
       </div>
     </div>
   )
